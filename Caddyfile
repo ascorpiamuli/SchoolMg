@@ -1,0 +1,33 @@
+http://school.test:9090 {
+
+  encode gzip
+
+  # Backend routes (Laravel) FIRST
+  handle_path /backend/* {
+    reverse_proxy localhost:9000
+  }
+
+  # Frontend (Vite React app)
+  reverse_proxy /vite* localhost:3000
+  reverse_proxy /@vite* localhost:3000
+  reverse_proxy /src/* localhost:3000
+  reverse_proxy /node_modules/* localhost:3000
+  reverse_proxy /__vite_ping localhost:3000
+  reverse_proxy /__vite_plugin__* localhost:3000
+  reverse_proxy /favicon.ico localhost:3000
+
+  # Catch-all frontend route (after backend)
+  reverse_proxy /* localhost:3000
+
+  # CORS headers
+  header {
+    Access-Control-Allow-Origin *
+    Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+    Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, X-CSRF-TOKEN"
+  }
+
+  # Log file
+  log {
+    output file "E:/School Mg/caddy-access.log"
+  }
+}

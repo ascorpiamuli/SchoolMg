@@ -1,0 +1,7 @@
+﻿version: 2
+authtoken: 2yoVh5DOxn7baExNczznBfN8RQi_STBGUtS92LYDP6S73jVx
+
+tunnels:
+  school:
+    proto: tls
+    addr: 8443

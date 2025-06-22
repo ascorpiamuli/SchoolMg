@@ -1,0 +1,26 @@
+# Laravel
+/vendor
+/node_modules
+.env
+.env.*
+/storage/*.key
+/public/storage
+/public/hot
+.phpunit.result.cache
+
+# React/Vite/Node
+school-frontend/node_modules
+school-frontend/dist
+school-frontend/.vite
+school-frontend/.next
+school-backend.zip
+school-frontend.zip
+# System
+.DS_Store
+Thumbs.db
+*.log
+
+# Backups or archives
+*.zip
+*.tar.gz
+*.rar
